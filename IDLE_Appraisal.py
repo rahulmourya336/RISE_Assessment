@@ -1,3 +1,12 @@
+"""
+        Python program for employee appraisal
+        
+        Experience >= 3 : 5% raise
+        Experience < 3  : 3% raise
+        On Female       : +2% raise
+        
+"""
+
 EXP_GRET_3 = 0.5
 EXP_LESS_3 = 0.3
 IS_FEMALE = 0.2
