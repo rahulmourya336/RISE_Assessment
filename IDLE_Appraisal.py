@@ -6,6 +6,7 @@
         On Female       : +2% raise
         
 """
+import math
 
 EXP_GRET_3 = 0.5
 EXP_LESS_3 = 0.3
@@ -16,20 +17,26 @@ emp_exp =          []
 emp_gender =       []
 dummy_emp_salary = []
 
-def IncrementOnFemale(flag, salary):
-        if (flag):
-                return (salary * IS_FEMALE)
+
+def IncrementOnTenK(salary):
+        return 0.15 if salary >= 10000 else 0.5
 
 def appraisal(salary, exp, gender):
         temp = 0
         if gender == 'F':
-                temp = IncrementOnFemale(1, salary)
+                temp += 0.2
         if exp >= 3:
-                temp += salary * EXP_GRET_3
-                return int(salary + temp)
-        if exp < 3:
-                temp += salary * EXP_LESS_3
-                return int(salary + temp)
+                temp += EXP_GRET_3
+                temp += IncrementOnTenK(salary)
+                salary += salary * temp
+                print("[increment",round(temp),"]")
+                return float(salary)
+        else:
+                temp += EXP_LESS_3
+                temp += IncrementOnTenK(salary)
+                salary += salary * temp
+                print("increment",round(temp),"]")
+                return float(salary)
 
 emp_count = int(input("Total Employees: "))
 
