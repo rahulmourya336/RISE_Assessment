@@ -22,6 +22,13 @@ public class Employee_ {
     private double salary;
     private float experience;
 
+    public Employee_(String name, String gender, double salary, float experience) {
+        this.name = name;
+        this.gender = gender;
+        this.salary = salary;
+        this.experience = experience;
+    }
+
     public String getName() {
         return name;
     }
@@ -83,40 +90,37 @@ public class Employee_ {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         double InitialSalarySum = 0.0;
-        
+
         System.out.println("How many employees: ");
         int counter = scan.nextInt();
-        
+
         Employee_[] emp = new Employee_[counter];
-   
+
         for (int loop = 0; loop < counter; loop++) {
-            emp[loop] = new Employee_();
-            
+
             System.out.println("Name:  ");
             String name = scan.next();
-            emp[loop].setName(name);
 
             System.out.println("Experience: ");
             float experience = scan.nextFloat();
-            emp[loop].setExperience(experience);
 
             System.out.println("Salary:  ");
             double salary = scan.nextDouble();
-            emp[loop].setSalary(salary);
 
             System.out.println("Gender: ");
             String gender = scan.next();
-            emp[loop].setGender(gender);
+
+            emp[loop] = new Employee_(name, gender, salary, experience);
         }
-        
-        for (int loop = 0; loop < counter; loop++){
+
+        for (int loop = 0; loop < counter; loop++) {
             InitialSalarySum += emp[loop].salary;
         }
-        
-        System.out.println("Before Appraisal CTC: "+ InitialSalarySum + "\n");
-        
-        for(int loop = 0; loop < counter; loop++){
-            System.out.print(emp[loop].getName()+" will get: "+emp[loop].appraisal(emp[loop].getSalary(), emp[loop].getExperience(), emp[loop].getGender()));
+
+        System.out.println("Before Appraisal CTC: " + InitialSalarySum + "\n");
+
+        for (int loop = 0; loop < counter; loop++) {
+            System.out.print(emp[loop].getName() + " will get: " + emp[loop].appraisal(emp[loop].getSalary(), emp[loop].getExperience(), emp[loop].getGender()));
             System.out.println("\n");
         }
 
