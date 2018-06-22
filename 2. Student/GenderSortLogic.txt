@@ -1,0 +1,24 @@
+//        for (int loop = 0; loop < limit; loop++) {
+//            for (int j = 1; j < limit - 1; j++) {
+//                if (students[loop].getGender().equals("M") || (students[loop].getGender().equals("m"))) {
+//                    System.out.println("IN MALE");
+//                    if (students[loop].getCpi() > students[j].getCpi()) {
+//                        MaleIndex.add(loop);
+//                    } else {
+//                        MaleIndex.add(loop);
+//                    }
+//                } else {
+//                    System.out.println("IN Female");
+//                    if (students[loop].getCpi() > students[j].getCpi()) {
+//                        FemaleIndex.add(loop);
+//                    } else {
+//                        FemaleIndex.add(loop);
+//                    }
+//                }
+//            }
+//
+//            System.out.println("Male Top Scorer - Name: " + students[MaleIndex.get(1)].getName() + "CPI: " + students[MaleIndex.get(1)].getCpi());
+//            System.out.println("Female Top Scorer - Name: " + students[FemaleIndex.get(1)].getName() + "CPI: " + students[FemaleIndex.get(1)].getCpi());
+//
+//        }
+
