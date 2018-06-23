@@ -69,9 +69,8 @@ public class Student {
 
     public static int returnMaxIndex(List<Integer> array, Student[] s) {
         int maxIndex = 0;
-        for (int array1 = 0; array1 < array.size() ; array1++) {
+        for (int array1 = 0; array1 < array.size(); array1++) {
             for (int array2 = 0; array2 < array.size() - 1; array2++) {
-                System.out.println("Array 1: "+ s[array.get(array2)].getCpi() + "Array 2: "+ s[array.get(array2 + 1)].getCpi());
                 if (s[array.get(array2)].getCpi() >= s[array.get(array2 + 1)].getCpi()) {
                     maxIndex = array.get(array2);
                 } else {
@@ -128,31 +127,33 @@ public class Student {
         System.out.println("\nAverage CPI: " + AverageCpi / limit);
 
         //Highest Scorer gender wise
-        System.out.println("Male Index count: " + Arrays.toString(MaleIndex.toArray()));
-        System.out.println("Female Index count: " + Arrays.toString(FemaleIndex.toArray()));
-
         maxMaleIndex = returnMaxIndex(MaleIndex, students);
         maxFemaleIndex = returnMaxIndex(FemaleIndex, students);
 
         System.out.println("Highest Male scorer: " + students[maxMaleIndex]);
         System.out.println("Highest Female scorer: " + students[maxFemaleIndex]);
-        // Sort them based on heights - Pending
+
+        //Sort them based on heights - Pending
+        
+//        for(int loop=0; loop < limit; loop++){
+//            Arrays.sort(students[loop[height]].getHeight());
+//        }
 //        int tempIndex = 0;
-//        for (int first = 0; first < limit - 1; first++) {
-//            for (int next = 0; next < limit - first - 1; next++) {
-//                if (students[next].getHeight() > students[next + 1].getHeight()) {
+//        for (int first = 0; first < limit ; first++) {
+//            for (int next = 0; next < limit - 1; next++) {
+//                System.out.println("next: "+ next+ " Next+1:"+ (next + 1) + "tempIndex :"+ tempIndex);
+//                if (students[next].getHeight() >= students[(next + 1)].getHeight()) {
 //                    heightIndex[tempIndex] = next;
-//                    tempIndex++;
 //                } else {
-//                    heightIndex[tempIndex] = next + 1;
-//                    tempIndex++;
+//                    heightIndex[tempIndex] = (next + 1);
 //                }
+//                tempIndex++;
 //            }
 //        }
-//        System.out.println("Height Index size: " + heightIndex.length);
-//        for (int loop = 0; loop < heightIndex.length; loop++) {
-//            System.out.println(students[heightIndex[loop]]);
-//        }
+        System.out.println("Height Index size: " + heightIndex.length);
+        for (int loop = 0; loop < heightIndex.length; loop++) {
+            System.out.println(students[heightIndex[loop]]);
+        }
 
         // Print Name and Height
         System.out.println("\nStudent CPIs whoes name starts with \"S\": ");
