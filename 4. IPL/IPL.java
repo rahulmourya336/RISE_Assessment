@@ -5,6 +5,7 @@
  */
 package rise;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -39,7 +40,8 @@ public class IPL {
 
         @Override
         public String toString() {
-            return "Player{" + "name=" + name + ", role=" + role + ", country=" + country + '}';
+            return "Player{" + "name=" + name + ", role=" + role
+                    + ", country=" + country + '}';
         }
     }
 
@@ -58,25 +60,14 @@ public class IPL {
         }
     }
 
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public String getHomeGroundName() {
-        return homeGroundName;
-    }
-
-    public String getTeamOwner() {
-        return teamOwner;
-    }
-
     @Override
     public String toString() {
-        return "IPL{" + "teamName=" + teamName + ", homeGroundName=" + homeGroundName + ", teamOwner=" + teamOwner + '}';
+        return "IPL{" + "teamName=" + teamName + ", homeGroundName="
+                + homeGroundName + ", teamOwner=" + teamOwner + '}';
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("How many Teams? ");
@@ -97,44 +88,65 @@ public class IPL {
 
             System.out.println("Enter team-owner: ");
             String teamOwner = scanner.next();
-            
+
             boolean captainFlag = false;
             boolean wicketKeeperFlag = false;
             int awayPlayersCount = 0;
-            
+
             for (int loop2 = 0; loop2 < playerCount; loop2++) {
-                
-                System.out.println("[Away player count: "+ awayPlayersCount 
-                        + ", Captain Available: " + captainFlag 
-                        + ", Wicket-keeper Available: "+ wicketKeeperFlag + "]");
+
+                System.err.println("[Away player count: " + awayPlayersCount
+                        + ", Captain Available: " + captainFlag
+                        + ", Wicket-keeper Available: " + wicketKeeperFlag + "]");
 
                 System.out.println("Enter " + (loop2 + 1) + " Name: ");
                 String playerName = scanner.next();
 
-                System.out.println("Enter " + playerName + " Role: ");
+                System.out.println("Enter " + playerName + "'s Role: ");
                 String playerRole = scanner.next();
 
-                System.out.println("Enter " + playerName + " Country: ");
+                System.out.println("Enter " + playerName + "'s Country: ");
                 String playerCountry = scanner.next();
-                
-                if(!playerCountry.equalsIgnoreCase(teamHomeGround)){
+
+                // set flags and values
+                if (!playerCountry.equalsIgnoreCase(teamHomeGround)) {
                     awayPlayersCount++;
                 }
-                
-                if(awayPlayersCount < 4 && (loop2 < playerCount - 4)){
-                    System.out.println("");
+
+                if (playerRole.equalsIgnoreCase("Captain")) {
+                    captainFlag = true;
                 }
 
-                ipl[loop] = new IPL(teamName, teamHomeGround, teamOwner, playerCount, playerName, playerRole, playerCountry);
-            }
-        }
+                if (playerRole.equalsIgnoreCase("Wicket-keeper")) {
+                    wicketKeeperFlag = true;
+                }
 
-        for (int i = 0; i < limit; i++) {
-            System.out.println(ipl[i]);
-            for (int loop = 0; loop < playerCount; loop++) {
-                System.out.println(player[playerCount]);
+                // Validate flag and values
+                System.out.println("\n*************************************");
+                if (awayPlayersCount < 4) {
+                    System.out.println((4 - awayPlayersCount)
+                            + " away player requires.");
+                }
+                if (!captainFlag) {
+                    System.out.println("Add captain to team");
+                }
+                if (!wicketKeeperFlag) {
+                    System.out.println("Add Wicket-keeper to team");
+                }
+                System.out.println("\n*************************************");
+
+                if (loop2 == playerCount - 1) {
+                    if (awayPlayersCount >= 4 && captainFlag && wicketKeeperFlag) {
+                        ipl[loop] = new IPL(teamName, teamHomeGround, teamOwner,
+                                playerCount, playerName, playerRole, playerCountry);
+                    } else {
+                        System.err.println("Validation is not satisfied");
+                        System.err.println("Re-Enter the data for team: " + loop);
+                        loop2 = -1;
+                    }
+                }
             }
         }
+        // Print team and player info - Pending.
     }
-
 }
