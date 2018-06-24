@@ -3,3 +3,4 @@
 ### RISE JUNE 18 Batch assessment 
 
 #### This repository contains the pre-assessment programs which are part of RISE training.
+##### Made with ~~❤️~~ a keyboard
