@@ -46,22 +46,6 @@ public class Student {
         return height;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setCpi(double cpi) {
-        this.cpi = cpi;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
-    }
-
     @Override
     public String toString() {
         return "Student{" + "name=" + name + ", gender=" + gender + ", cpi=" + cpi + ", height=" + height + '}';

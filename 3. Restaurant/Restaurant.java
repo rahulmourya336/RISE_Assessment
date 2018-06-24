@@ -47,26 +47,6 @@ public class Restaurant {
         return cuisine;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setContact(long contact) {
-        this.contact = contact;
-    }
-
-    public void setOpeningTime(float OpeningTime) {
-        this.OpeningTime = OpeningTime;
-    }
-
-    public void setClosingTime(float ClosingTime) {
-        this.ClosingTime = ClosingTime;
-    }
-
-    public void setCuisine(String[] cuisine) {
-        this.cuisine = cuisine;
-    }
-
     public int restaurantCount(String[] cuisine, String cuisineName, float openingTime) {
         int count = 0;
         for (String cuisine1 : cuisine) {

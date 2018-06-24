@@ -44,23 +44,7 @@ public class Employee_ {
     public float getExperience() {
         return experience;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public void setExperience(float experience) {
-        this.experience = experience;
-    }
-
+    
     double IncrementOnTenK(double salary) {
         if (salary >= 10000) {
             return 0.15;
