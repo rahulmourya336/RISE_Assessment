@@ -41,7 +41,7 @@ class CustomerInfo {
     }
 
     public void showMenu(CustomerInfo c) {
-        System.out.println("\n "+c.getName()+" Please choose appropriate number for following operations: ");
+        System.out.println("\n " + c.getName() + " Please choose appropriate number for following operations: ");
         System.out.println("1. For Withdraw");
         System.out.println("2. For Deposit");
         System.out.println("3. For Balance Inquiry");
@@ -67,18 +67,17 @@ class CustomerInfo {
                 break;
             }
             case 4: {
-                System.out.println("Enter your new name : "+c.getName());
+                System.out.println("Enter your new name : " + c.getName());
                 String newName = sc.next();
                 c.setName(newName);
             }
             break;
-            
-            case 5:
-            {
-                System.out.println("Thank you " + c.getName() + " for visiting RISE Bank" );
+
+            case 5: {
+                System.out.println("Thank you " + c.getName() + " for visiting RISE Bank");
                 System.exit(0);
             }
-                break;
+            break;
             default:
                 System.out.println("System is Busy ");
                 break;
@@ -107,6 +106,15 @@ class CustomerInfo {
     public void changeName(String newName) {
         setName(newName);
     }
+    
+    public static String getGender(String gender){
+        String gender_ = "Mr. ";
+        if(gender.equalsIgnoreCase("F")){
+            gender_ = "Miss. ";
+            return gender;
+        }
+        return gender_;
+    }
 
 }
 
@@ -125,7 +133,7 @@ public class Bank {
         name = sc.next();
         gender = sc.next();
 
-        System.out.println("Thank you " + name);
+        System.out.println("Thank you " +CustomerInfo.getGender(gender)+ name);
         System.out.println("Enter your initial amount: ");
         initialBalance = sc.nextInt();
 
